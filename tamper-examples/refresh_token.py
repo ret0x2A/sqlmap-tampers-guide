@@ -29,8 +29,7 @@ def get_proxy():
     if conf.proxy:
         proxy_schema = conf.proxy.split(":")[0]
         proxy[proxy_schema] = conf.proxy
-   
-    print(proxy)
+
     return proxy
 
 def get_tokens_from_headers():
@@ -41,16 +40,12 @@ def get_tokens_from_headers():
     access_token = None
     refresh_token = None
    
-    print(headers_list)
-   
     for item in headers_list:
         if "Authorization" in item:
             access_token = item.split(' ')[-1]
         elif "X-Refresh-Token" in item:
             refresh_token = item.split(' ')[-1]
    
-    print(access_token)
-    print(refresh_token)
     return access_token, refresh_token
 
 def set_token_to_headers(access_token, refresh_token, ):
@@ -70,8 +65,6 @@ def check_token_alive(base_url, access_token, proxy):
     '''
     Проверяем, жив ли access_token, выполнив запрос на таргет
     '''
-    print('Start check token')
-    print(access_token)
     headers = {
         "Authorization": f"Bearer {access_token}",
         "X-Refresh-Token": refresh_token,
@@ -80,7 +73,7 @@ def check_token_alive(base_url, access_token, proxy):
 
 
     resp = requests.get(url, headers=headers, timeout=5, proxies=proxy)
-    print('Request ended')
+
     if resp.status_code == 401:
         return False
    
