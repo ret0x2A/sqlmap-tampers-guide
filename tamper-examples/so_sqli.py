@@ -80,7 +80,6 @@ def check_token_alive(base_url, access_token, proxy):
     if resp.status_code == 401:
         return False
     
-    print('Token alive')
     return True
 
 def update_token(base_url, refresh_token, proxy):
