@@ -8,7 +8,7 @@ from lib.core.enums import PRIORITY
 __priority__ = PRIORITY.NORMAL
 
 def dependencies():
-    singleTimeWarnMessage('Tamper demonstrates how to update session data. To learn more, visit the repository: https://github.com/...')
+    singleTimeWarnMessage('Tamper demonstrates how to update session data. For more details, visit the repository: https://github.com/ret0x2A/sqlmap-tampers-guide/')
 
 def get_base_url():
     '''
