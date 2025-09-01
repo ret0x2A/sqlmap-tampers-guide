@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: library
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: rootpass
+    volumes:
+      - ./db/00_schema.sql:/docker-entrypoint-initdb.d/00_schema.sql
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    image: php:8.2-apache
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./php/src:/var/www/html
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: db
+      DB_NAME: library
+      DB_USER: user
+      DB_PASS: pass
+    command: >
+      bash -c "docker-php-ext-install pdo pdo_mysql &&
+               apache2-foreground"
