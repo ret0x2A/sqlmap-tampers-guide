@@ -8,7 +8,7 @@ from lib.core.enums import PRIORITY
 __priority__ = PRIORITY.NORMAL
 
 def dependencies():
-    singleTimeWarnMessage('Tamper demonstrates how to update session data. To learn more, visit the repository: https://github.com/...')
+    singleTimeWarnMessage('This tamper script demonstrates how to work with second-order SQL Injection in sqlmap. For more details, visit the repository: https://github.com/ret0x2A/sqlmap-tampers-guide/')
 
 def get_base_url():
     base_url = f"{conf.scheme}://{conf.hostname}"
