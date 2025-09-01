@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SQL Injection Lab|ret0x2A</title>
+  <link rel="icon" href="/img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <img src="/img/logo.png" alt="SQL Injection Lab" width="32" height="32"/>
+        <span class="beta">SQL Injection Lab|ret0x2A</span>
+      </div>
+      <nav class="nav">
+        <button id="openLogin" class="btn ghost">Войти</button>
+        <button id="openLogout" class="btn ghost hidden">Выйти</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Каталог автомобилей</h1>
+      <p class="muted">Красивый интерфейс для учебной лаборатории по тестированию безопасности (SQLi). Уязвимость в поиске сохранена намеренно.</p>
+      <form id="searchForm" class="search">
+        <input id="q" type="text" placeholder="Искать по названию… например: Mustang" autocomplete="off"/>
+        <button class="btn" type="submit">Найти</button>
+      </form>
+    </section>
+
+    <section>
+      <div id="grid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© ret0x2A специально для статьи в <a href="https://xakep.ru/">[Xakep]</a></span>
+      <span class="hint">{' or 1=1 -- }</span>
+    </div>
+  </footer>
+
+  <!-- Auth modal -->
+  <div id="authModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close" id="closeLogin" aria-label="Закрыть">✕</button>
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Вход</button>
+        <button class="tab" data-tab="register">Регистрация</button>
+      </div>
+
+      <form id="loginForm" class="form" data-kind="login">
+        <label>Логин</label>
+        <input name="username" required placeholder="user1"/>
+        <label>Пароль</label>
+        <input name="password" type="password" required placeholder="password1"/>
+        <button class="btn wfull" type="submit">Войти</button>
+      </form>
+
+      <form id="registerForm" class="form hidden" data-kind="register">
+        <label>Логин</label>
+        <input name="username" required placeholder="новый логин"/>
+        <label>Пароль</label>
+        <input name="password" type="password" required placeholder="минимум 6 символов"/>
+        <button class="btn wfull" type="submit">Создать аккаунт</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/script.js" defer></script>
+</body>
+</html>
