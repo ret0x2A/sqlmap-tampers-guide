@@ -44,8 +44,8 @@
 
 # Другие ресурсы автора
 
-Telegram: [Хакинг с ret0x2a](https://t.me/ret0x2A)
+🔥 Telegram: [Хакинг с ret0x2a](https://t.me/ret0x2A)
 
-[Youtube-канал](https://www.youtube.com/@ret0x2A) автора
+🎥 [Youtube-канал](https://www.youtube.com/@ret0x2A) автора
 
-Статьи в [журнале Хакер](https://xakep.ru/author/ret42/)
+📝 Статьи в [журнале Хакер](https://xakep.ru/author/ret42/)
